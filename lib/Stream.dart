@@ -6,6 +6,7 @@ class Stream extends StatefulWidget {
 }
 
 class _StreamState extends State<Stream> {
+  static const IconData shopping_bag_outlined = IconData(0xe415, fontFamily: 'MaterialIcons');
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +100,7 @@ class _StreamState extends State<Stream> {
               ),
             ),
             Positioned(
-                top: 305,
+                top: 345,
                 left: 15,
                 child: Container(
                   width: 45.0,
@@ -112,7 +113,7 @@ class _StreamState extends State<Stream> {
                 )
             ),
             Positioned(
-                top: 352,
+                top: 392,
                 left: 18,
                 child: Container(
                     child: Text(
@@ -123,7 +124,7 @@ class _StreamState extends State<Stream> {
                 )
             ),
             Positioned(
-                top: 395,
+                top: 435,
                 left: 18,
                 child: Container(
                     child: CircleAvatar(
@@ -133,7 +134,7 @@ class _StreamState extends State<Stream> {
                 )
             ),
             Positioned(
-                top: 395,
+                top: 435,
                 left: 55,
                 child: Container(
                     child: Text(
@@ -144,7 +145,7 @@ class _StreamState extends State<Stream> {
                 )
             ),
             Positioned(
-                top: 410,
+                top: 450,
                 left: 55,
                 child: Container(
                     child: Text(
@@ -155,35 +156,12 @@ class _StreamState extends State<Stream> {
                 )
             ),
             Positioned(
-                top: 440,
-                left: 18,
+                top: 540,
+                left: 315,
                 child: Container(
-                    child: CircleAvatar(
-                      radius: 14,
-                      backgroundImage: NetworkImage( "https://images.unsplash.com/photo-1597466765990-64ad1c35dafc"),
-                    )
-                )
-            ),
-            Positioned(
-                top: 440,
-                left: 55,
-                child: Container(
-                    child: Text(
-                      'John Williams',
-                      style: TextStyle(
-                          fontWeight: FontWeight.normal, fontSize: 12
-                      ),)
-                )
-            ),
-            Positioned(
-                top: 455,
-                left: 55,
-                child: Container(
-                    child: Text(
-                      'Good Product',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 13
-                      ),)
+                  child: Container(
+                    child: Icon(Icons.remove_red_eye_outlined),
+                  ),
                 )
             ),
             Positioned(
@@ -218,6 +196,81 @@ class _StreamState extends State<Stream> {
                       ),)
                 )
             ),
+            Positioned(
+                top: 535,
+                left: 18,
+                child: Container(
+                    child: CircleAvatar(
+                      radius: 14,
+                      backgroundImage: NetworkImage( "https://images.unsplash.com/photo-1597466765990-64ad1c35dafc"),
+                    )
+                )
+            ),
+            Positioned(
+                top: 535,
+                left: 55,
+                child: Container(
+                    child: Text(
+                      'John Williams',
+                      style: TextStyle(
+                          fontWeight: FontWeight.normal, fontSize: 12
+                      ),)
+                )
+            ),
+            Positioned(
+                top: 550,
+                left: 55,
+                child: Container(
+                    child: Text(
+                      'Good Product',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 13
+                      ),)
+                )
+            ),
+            Positioned(
+                top: 600,
+                left: 18,
+                child: Container(
+                  child: Icon(
+                    Icons.shopping_bag_outlined,
+                    size: 20,
+                  ),
+                )
+            ),
+            /*Positioned(
+                top: 600,
+                left: 68,
+                child: Container(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Say Something',
+                    ),
+                  ),
+                )
+            ),*/
+            Positioned(
+                top: 600,
+                left: 278,
+                child: Container(
+                  child: Icon(
+                    Icons.shopping_bag_outlined,
+                    size: 20,
+                  ),
+                )
+            ),
+            Positioned(
+                top: 600,
+                left: 318,
+                child: Container(
+                  child: Icon(
+                    Icons.shopping_bag_outlined,
+                    size: 20,
+                  ),
+                )
+            ),
+
 
           ],
         ),
