@@ -7,7 +7,7 @@ class Stream extends StatefulWidget {
 
 class _StreamState extends State<Stream> {
   static const IconData shopping_bag_outlined = IconData(0xe415, fontFamily: 'MaterialIcons');
-
+  static const IconData volume_off = IconData(0xead0, fontFamily: 'MaterialIcons');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +48,7 @@ class _StreamState extends State<Stream> {
               top: 52,
               left: 60,
               child: Container(
-                child: Icon(Icons.remove_red_eye_outlined,size: 13.0),
+                child: Icon(shopping_bag_outlined,size: 13.0),
               ),
             ),
             Positioned(
@@ -160,7 +160,7 @@ class _StreamState extends State<Stream> {
                 left: 315,
                 child: Container(
                   child: Container(
-                    child: Icon(Icons.remove_red_eye_outlined),
+                    child: Icon(volume_off),
                   ),
                 )
             ),
