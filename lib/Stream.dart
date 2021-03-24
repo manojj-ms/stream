@@ -78,7 +78,6 @@ class _StreamState extends State<Stream> {
               width: 90,
               child: Container(
                   child: ElevatedButton(
-                    color: isButtonPressed ? Colors.green : Colors.red,
                     child: Text(" Switch Product ",  style: TextStyle(
                         fontWeight: FontWeight.normal, fontSize: 10, color: Colors.black,
                     )),
