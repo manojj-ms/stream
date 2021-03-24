@@ -14,8 +14,6 @@ class _StreamState extends State<Stream> {
     return Scaffold(
       body: Container(
         /* bg image */
-        height: 850,
-        width: 600,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: NetworkImage("http://via.placeholder.com/300"),
@@ -79,8 +77,9 @@ class _StreamState extends State<Stream> {
               left: 200,
               width: 90,
               child: Container(
-                  child: RaisedButton(
-                    child: Text(" Switch Product ",   style: TextStyle(
+                  child: ElevatedButton(
+                    color: isButtonPressed ? Colors.green : Colors.red,
+                    child: Text(" Switch Product ",  style: TextStyle(
                         fontWeight: FontWeight.normal, fontSize: 10, color: Colors.black,
                     )),
                   ),
@@ -91,11 +90,10 @@ class _StreamState extends State<Stream> {
               left: 300,
               width: 50,
               child: Container(
-                child: RaisedButton(
+                child: ElevatedButton(
                   child: Text(" END ",   style: TextStyle(
                       fontWeight: FontWeight.normal, fontSize: 10, color: Colors.black
                   )),
-                  color: Color(0xffe5dddd),
                 ),
               ),
             ),
@@ -149,7 +147,7 @@ class _StreamState extends State<Stream> {
                 left: 55,
                 child: Container(
                     child: Text(
-                      'Good Product',
+                      'Good Product!',
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 13
                       ),)
@@ -190,7 +188,7 @@ class _StreamState extends State<Stream> {
                 left: 55,
                 child: Container(
                     child: Text(
-                      'Good Product',
+                      'Good Product!',
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 13
                       ),)
@@ -222,7 +220,7 @@ class _StreamState extends State<Stream> {
                 left: 55,
                 child: Container(
                     child: Text(
-                      'Good Product',
+                      'Good Product!',
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 13
                       ),)
@@ -238,18 +236,30 @@ class _StreamState extends State<Stream> {
                   ),
                 )
             ),
-            /*Positioned(
-                top: 600,
-                left: 68,
+            Positioned(
+                top: 590,
+                left: 50,
                 child: Container(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Say Something',
-                    ),
-                  ),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: 215,
+                          height: 35,
+                          child: TextField(decoration: new InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.black, width: 2.0),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.black, width: 2.0),
+                            ),
+                            hintText: 'Say Something...',
+                          ),),
+                        ),
+                      ],
+                    )
                 )
-            ),*/
+            ),
+
             Positioned(
                 top: 600,
                 left: 278,
