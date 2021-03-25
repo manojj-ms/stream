@@ -85,23 +85,23 @@ class _StreamState extends State<Stream> {
                       // Respond to button press
                     },
                     child: Text('Switch Product', style: TextStyle(
-                        fontWeight: FontWeight.normal, fontSize: 10
+                        fontWeight: FontWeight.normal, fontSize: 11,color: Colors.purpleAccent
                     ),),
                   )
               ),
             ),
             Positioned(
               top: 35,
-              left: 300,
+              left: 298,
               width: 50,
               child: Container(
                   child :ElevatedButton.icon(
                     onPressed: () {
                       // Respond to button press
                     },
-                    icon: Icon(Icons.power_settings_new, size: 13),
+                    icon: Icon(Icons.power_settings_new,color: Colors.redAccent, size: 13),
                     label: Text("END",style: TextStyle(
-                        fontWeight: FontWeight.normal, fontSize: 10
+                        fontWeight: FontWeight.normal, fontSize: 10,color: Colors.purpleAccent
                     ),),
                   )
               ),
