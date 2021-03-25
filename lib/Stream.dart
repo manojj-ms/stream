@@ -9,6 +9,9 @@ class _StreamState extends State<Stream> {
   static const IconData shopping_bag_outlined = IconData(0xe415, fontFamily: 'MaterialIcons');
   static const IconData volume_off = IconData(0xead0, fontFamily: 'MaterialIcons');
   static const IconData remove_red_eye = IconData(0xe974, fontFamily: 'MaterialIcons');
+  static const IconData flip_camera_ios_rounded = IconData(0xf201, fontFamily: 'MaterialIcons');
+  static const IconData filter_alt_outlined = IconData(0xe1b6, fontFamily: 'MaterialIcons');
+  static const IconData power_settings_new = IconData(0xe949, fontFamily: 'MaterialIcons');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,10 +81,13 @@ class _StreamState extends State<Stream> {
               width: 90,
               child: Container(
                   child: ElevatedButton(
-                    child: Text(" Switch Product ",  style: TextStyle(
-                        fontWeight: FontWeight.normal, fontSize: 10, color: Colors.black,
-                    )),
-                  ),
+                    onPressed: () {
+                      // Respond to button press
+                    },
+                    child: Text('Switch Product', style: TextStyle(
+                        fontWeight: FontWeight.normal, fontSize: 10
+                    ),),
+                  )
               ),
             ),
             Positioned(
@@ -89,11 +95,15 @@ class _StreamState extends State<Stream> {
               left: 300,
               width: 50,
               child: Container(
-                child: ElevatedButton(
-                  child: Text(" END ",   style: TextStyle(
-                      fontWeight: FontWeight.normal, fontSize: 10, color: Colors.black
-                  )),
-                ),
+                  child :ElevatedButton.icon(
+                    onPressed: () {
+                      // Respond to button press
+                    },
+                    icon: Icon(Icons.power_settings_new, size: 13),
+                    label: Text("END",style: TextStyle(
+                        fontWeight: FontWeight.normal, fontSize: 10
+                    ),),
+                  )
               ),
             ),
             Positioned(
@@ -264,7 +274,7 @@ class _StreamState extends State<Stream> {
                 left: 278,
                 child: Container(
                   child: Icon(
-                    Icons.shopping_bag_outlined,
+                    Icons.flip_camera_ios_rounded,
                     size: 20,
                   ),
                 )
@@ -274,7 +284,7 @@ class _StreamState extends State<Stream> {
                 left: 318,
                 child: Container(
                   child: Icon(
-                    Icons.shopping_bag_outlined,
+                    Icons.filter_alt_outlined,
                     size: 20,
                   ),
                 )

@@ -22,11 +22,12 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-              primary: Colors.blueGrey[900],
-            ),     //  <-- dark color<-- this auto selects the right color
-          )
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            onPrimary: Colors.blue,
+            primary: Colors.white,
+          ),
+        ),
       ),
       home: Stream(),
     );
