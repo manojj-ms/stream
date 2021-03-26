@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:video_player/video_player.dart';
 class Stream extends StatefulWidget {
   @override
   _StreamState createState() => _StreamState();
@@ -12,26 +12,60 @@ class _StreamState extends State<Stream> {
   static const IconData flip_camera_ios_rounded = IconData(0xf201, fontFamily: 'MaterialIcons');
   static const IconData filter_alt_outlined = IconData(0xe1b6, fontFamily: 'MaterialIcons');
   static const IconData power_settings_new = IconData(0xe949, fontFamily: 'MaterialIcons');
+  VideoPlayerController _controller;
+
+  // Override the initState() method and setup your VideoPlayerController
+  @override
+  void initState() {
+    super.initState();
+    // Pointing the video controller to our local asset.
+    _controller = VideoPlayerController.network("",)
+      ..initialize().then((_) {
+        // Once the video has been loaded we play the video and set looping to true.
+        _controller.play();
+        _controller.setLooping(true);
+        // Ensure the first frame is shown after the video is initialized.
+        setState(() {});
+      });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: Container(
-        /* bg image */
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage("http://via.placeholder.com/300"),
-            fit: BoxFit.cover,
-          ),
+        decoration: new BoxDecoration(
+            color: new Color.fromRGBO(0,0,0,0.6) // Specifies the background color and the opacity
         ),
+
         child: Stack(
           children: <Widget>[
+        SizedBox.expand(
+        child: FittedBox(
+          // If your background video doesn't look right, try changing the BoxFit property.
+          // BoxFit.fill created the look I was going for.
+          fit: BoxFit.fill,
+          child: SizedBox(
+            width: _controller.value.size?.width ?? 0,
+            height: _controller.value.size?.height ?? 0,
+            child: VideoPlayer(_controller),
+          ),
+        ),
+        ),
             Positioned(
               top: 30,
               left: 15,
             child: Container(
                 child: CircleAvatar(
                   radius: 18,
-                  backgroundImage: NetworkImage( "https://images.unsplash.com/photo-1597466765990-64ad1c35dafc"),
+                  backgroundImage: NetworkImage( "https://images.unsplash.com/photo-1597466765990-64ad1c35dafc",),
                 )
               )
             ),
@@ -77,23 +111,23 @@ class _StreamState extends State<Stream> {
             ),
             Positioned(
               top: 35,
-              left: 200,
-              width: 90,
+              left: 180,
+              width: 85,
               child: Container(
                   child: ElevatedButton(
                     onPressed: () {
                       // Respond to button press
                     },
                     child: Text('Switch Product', style: TextStyle(
-                        fontWeight: FontWeight.normal, fontSize: 11,color: Colors.purpleAccent
+                        fontWeight: FontWeight.normal, fontSize: 10,color: Colors.purpleAccent
                     ),),
                   )
               ),
             ),
             Positioned(
               top: 35,
-              left: 298,
-              width: 50,
+              left: 272,
+              width: 69,
               child: Container(
                   child :ElevatedButton.icon(
                     onPressed: () {
@@ -249,19 +283,26 @@ class _StreamState extends State<Stream> {
                 top: 590,
                 left: 50,
                 child: Container(
+                    alignment: Alignment.center,
                     child: Row(
                       children: [
                         SizedBox(
-                          width: 215,
-                          height: 35,
-                          child: TextField(decoration: new InputDecoration(
+                          width: 205,
+                          height: 40,
+                          child: TextField(
+                            textAlignVertical: TextAlignVertical.center,
+                            textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontSize: 12,
+                              ),
+                            decoration: new InputDecoration(
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.black, width: 2.0),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.black, width: 2.0),
                             ),
-                            hintText: 'Say Something...',
+                            hintText: 'Say Something. . .',
                           ),),
                         ),
                       ],

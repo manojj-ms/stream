@@ -1,5 +1,5 @@
 import 'dart:html';
-
+import 'package:video_player/video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:stream/Stream.dart';
 
@@ -26,6 +26,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
+            primary: Colors.white,
+          ),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
             primary: Colors.white,
           ),
         ),
@@ -60,6 +65,22 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  VideoPlayerController _controller;
+
+  // Override the initState() method and setup your VideoPlayerController
+  @override
+  void initState() {
+    super.initState();
+    // Pointing the video controller to our local asset.
+    _controller = VideoPlayerController.network("https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4")
+      ..initialize().then((_) {
+        // Once the video has been loaded we play the video and set looping to true.
+        _controller.play();
+        _controller.setLooping(true);
+        // Ensure the first frame is shown after the video is initialized.
+        setState(() {});
+      });
+  }
 
   void _incrementCounter() {
     setState(() {
