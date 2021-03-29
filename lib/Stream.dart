@@ -270,15 +270,16 @@ class _StreamState extends State<Stream> {
                 )
             ),
             Positioned(
-                top: 600,
-                left: 18,
+                top: 592,
+                left: 5,
                 child: Container(
-                  child: Icon(
-                    Icons.shopping_bag_outlined,
-                    size: 20,
+                  child: new IconButton(
+                    icon: Icon(Icons.shopping_bag_outlined,size: 20),
+                      onPressed: () {
+
+                      }), //
                   ),
-                )
-            ),
+                ),
             Positioned(
                 top: 590,
                 left: 50,
