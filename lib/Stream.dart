@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 class Stream extends StatefulWidget {
+  String text = 'Related Products (6)';
+
   @override
   _StreamState createState() => _StreamState();
 }
@@ -276,7 +278,62 @@ class _StreamState extends State<Stream> {
                   child: new IconButton(
                     icon: Icon(Icons.shopping_bag_outlined,size: 20),
                       onPressed: () {
-
+                        // ignore: missing_return
+                        showModalBottomSheet<void>( shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20.0),
+                              topRight: Radius.circular(20.0)
+                          ),
+                        ),context: context,   backgroundColor: Colors.white, builder: (BuildContext context) {
+                          return Container(
+                            height: 450,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children:<Widget>[
+                                ButtonTheme(
+                                minWidth: 60.0,
+                                height: 13.0,
+                                buttonColor: Colors.grey,
+                                child: RaisedButton(
+                                  onPressed: () {},
+                                ),
+                              ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 5,right: 185),
+                                    child: Text('Related Products (6)',style: TextStyle(
+                                        fontWeight: FontWeight.bold
+                                    )),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 15,top: 20,right: 265),
+                                    child: Image.network(
+                                      'https://via.placeholder.com/150',
+                                      height: 70,
+                                      width: 95,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 15,top: 20,right: 265),
+                                    child: Image.network(
+                                      'https://via.placeholder.com/150',
+                                      height: 70,
+                                      width: 95,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 15,top: 20,right: 265),
+                                    child: Image.network(
+                                      'https://via.placeholder.com/150',
+                                      height: 70,
+                                      width: 95,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                          );
+                        },
+                        );
                       }), //
                   ),
                 ),
