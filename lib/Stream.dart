@@ -16,6 +16,13 @@ class _StreamState extends State<Stream> {
   static const IconData power_settings_new = IconData(0xe949, fontFamily: 'MaterialIcons');
   VideoPlayerController _controller;
 
+  final scrollController = ScrollController();
+
+
+
+  // backing data
+  final europeanCountries = ['esyin375: 4767', 'esyin375: 477', 'esyin375: op7', 'esyin375: op7','esyin375: mks',];
+
   // Override the initState() method and setup your VideoPlayerController
   @override
   void initState() {
@@ -31,11 +38,17 @@ class _StreamState extends State<Stream> {
       });
   }
 
+
   @override
   void dispose() {
     super.dispose();
     _controller.dispose();
   }
+
+  void scrollToBottom() {
+    scrollController.jumpTo(scrollController.position.maxScrollExtent);
+  }
+
 
 
   @override
@@ -167,38 +180,6 @@ class _StreamState extends State<Stream> {
                 )
             ),
             Positioned(
-                top: 435,
-                left: 18,
-                child: Container(
-                    child: CircleAvatar(
-                      radius: 14,
-                      backgroundImage: NetworkImage( "https://images.unsplash.com/photo-1597466765990-64ad1c35dafc"),
-                    )
-                )
-            ),
-            Positioned(
-                top: 435,
-                left: 55,
-                child: Container(
-                    child: Text(
-                      'John Williams',
-                      style: TextStyle(
-                          fontWeight: FontWeight.normal, fontSize: 12
-                      ),)
-                )
-            ),
-            Positioned(
-                top: 450,
-                left: 55,
-                child: Container(
-                    child: Text(
-                      'Good Product!',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 13
-                      ),)
-                )
-            ),
-            Positioned(
                 top: 540,
                 left: 315,
                 child: Container(
@@ -207,69 +188,21 @@ class _StreamState extends State<Stream> {
                   ),
                 )
             ),
-            Positioned(
-                top: 485,
-                left: 18,
-                child: Container(
-                    child: CircleAvatar(
-                      radius: 14,
-                      backgroundImage: NetworkImage( "https://images.unsplash.com/photo-1597466765990-64ad1c35dafc"),
-                    )
-                )
-            ),
-            Positioned(
-                top: 485,
-                left: 55,
-                child: Container(
-                    child: Text(
-                      'John Williams',
-                      style: TextStyle(
-                          fontWeight: FontWeight.normal, fontSize: 12
-                      ),)
-                )
-            ),
-            Positioned(
-                top: 500,
-                left: 55,
-                child: Container(
-                    child: Text(
-                      'Good Product!',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 13
-                      ),)
-                )
-            ),
-            Positioned(
-                top: 535,
-                left: 18,
-                child: Container(
-                    child: CircleAvatar(
-                      radius: 14,
-                      backgroundImage: NetworkImage( "https://images.unsplash.com/photo-1597466765990-64ad1c35dafc"),
-                    )
-                )
-            ),
-            Positioned(
-                top: 535,
-                left: 55,
-                child: Container(
-                    child: Text(
-                      'John Williams',
-                      style: TextStyle(
-                          fontWeight: FontWeight.normal, fontSize: 12
-                      ),)
-                )
-            ),
-            Positioned(
-                top: 550,
-                left: 55,
-                child: Container(
-                    child: Text(
-                      'Good Product!',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 13
-                      ),)
-                )
+      ListTileTheme.merge(
+        contentPadding: EdgeInsets.only(top:0),
+      child: ListView.builder(
+        padding: EdgeInsets.fromLTRB(18, 420, 0, 0),
+        shrinkWrap: true,
+        itemCount: europeanCountries.length,
+        controller: scrollController,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(europeanCountries[index],style: TextStyle(
+                fontWeight: FontWeight.normal, fontSize: 12
+            ),),
+          );
+        },
+      ),
             ),
             Positioned(
                 top: 592,
@@ -300,33 +233,108 @@ class _StreamState extends State<Stream> {
                                 ),
                               ),
                                   Padding(
-                                    padding: const EdgeInsets.only(top: 5,right: 185),
+                                    padding: const EdgeInsets.only(top: 5,right: 195),
                                     child: Text('Related Products (6)',style: TextStyle(
                                         fontWeight: FontWeight.bold
                                     )),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 15,top: 20,right: 265),
-                                    child: Image.network(
-                                      'https://via.placeholder.com/150',
-                                      height: 70,
-                                      width: 95,
+                                  ListTile(
+                                    leading: ConstrainedBox(
+                                      constraints: BoxConstraints(
+                                        minWidth: 44,
+                                        minHeight: 44,
+                                        maxWidth: 64,
+                                        maxHeight: 64,
+                                      ),
+                                      child: Image.network("https://images.unsplash.com/photo-1597466765990-64ad1c35dafc", fit: BoxFit.cover),
+                                    ),
+                                    title: Text('Product Name', style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13.0,
+                                    )),
+                                    isThreeLine: true,
+                                    subtitle: Text('description of product goes here...\nS10',style: TextStyle(
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 11
+                                    )),
+                                    trailing: RaisedButton(
+                                      onPressed: () {},
+                                      child: Text('Buy Now',style: TextStyle(
+                                          fontWeight: FontWeight.normal,
+                                          fontSize: 12
+                                      )),
+                                      color: Colors.white,
+                                      textColor: Colors.purpleAccent,
+                                      shape: RoundedRectangleBorder(
+                                          side: BorderSide(color: Colors.purpleAccent, width: 1)
+                                      ),
+                                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 15,top: 20,right: 265),
-                                    child: Image.network(
-                                      'https://via.placeholder.com/150',
-                                      height: 70,
-                                      width: 95,
+                                  ListTile(
+                                    leading: ConstrainedBox(
+                                      constraints: BoxConstraints(
+                                        minWidth: 44,
+                                        minHeight: 44,
+                                        maxWidth: 64,
+                                        maxHeight: 64,
+                                      ),
+                                      child: Image.network("https://images.unsplash.com/photo-1597466765990-64ad1c35dafc", fit: BoxFit.cover),
+                                    ),
+                                    title: Text('Product Name', style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13.0,
+                                    )),
+                                    isThreeLine: true,
+                                    subtitle: Text('description of product goes here...\nS10',style: TextStyle(
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 11
+                                    )),
+                                    trailing: RaisedButton(
+                                      onPressed: () {},
+                                      child: Text('Buy Now',style: TextStyle(
+                                          fontWeight: FontWeight.normal,
+                                          fontSize: 12
+                                      )),
+                                      color: Colors.white,
+                                      textColor: Colors.purpleAccent,
+                                      shape: RoundedRectangleBorder(
+                                          side: BorderSide(color: Colors.purpleAccent, width: 1)
+                                      ),
+                                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 15,top: 20,right: 265),
-                                    child: Image.network(
-                                      'https://via.placeholder.com/150',
-                                      height: 70,
-                                      width: 95,
+                                  ListTile(
+                                    leading: ConstrainedBox(
+                                      constraints: BoxConstraints(
+                                        minWidth: 44,
+                                        minHeight: 44,
+                                        maxWidth: 64,
+                                        maxHeight: 64,
+                                      ),
+                                      child: Image.network("https://images.unsplash.com/photo-1597466765990-64ad1c35dafc", fit: BoxFit.cover),
+                                    ),
+                                    title: Text('Product Name', style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13.0,
+                                    )),
+                                    isThreeLine: true,
+                                    subtitle: Text('description of product goes here...\nS10',style: TextStyle(
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 11
+                                    )),
+                                    trailing: RaisedButton(
+                                      onPressed: () {},
+                                      child: Text('Buy Now',style: TextStyle(
+                                          fontWeight: FontWeight.normal,
+                                          fontSize: 12
+                                      )),
+                                      color: Colors.white,
+                                      textColor: Colors.purpleAccent,
+                                      shape: RoundedRectangleBorder(
+                                          side: BorderSide(color: Colors.purpleAccent, width: 1)
+                                      ),
+                                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     ),
                                   ),
                                 ],
