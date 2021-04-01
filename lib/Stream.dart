@@ -21,7 +21,7 @@ class _StreamState extends State<Stream> {
 
 
   // backing data
-  final europeanCountries = ['esyin375: 4767', 'esyin375: 477', 'esyin375: op7', 'esyin375: op7','esyin375: mks',];
+  final europeanCountries = ['esyin375: 4767', 'esyin375: 477', 'esyin375: op7', 'esyin375: op7','esyin375: mks','esyin375: sks'];
 
   // Override the initState() method and setup your VideoPlayerController
   @override
@@ -188,11 +188,13 @@ class _StreamState extends State<Stream> {
                   ),
                 )
             ),
-      ListTileTheme.merge(
-        contentPadding: EdgeInsets.only(top:0),
+      Positioned(
+        top: 420,
+        child: Container(
+        height: 40,
+        color: Colors.white,
       child: ListView.builder(
-        padding: EdgeInsets.fromLTRB(18, 420, 0, 0),
-        shrinkWrap: true,
+        padding: EdgeInsets.only(top: 0,bottom: 10),
         itemCount: europeanCountries.length,
         controller: scrollController,
         itemBuilder: (context, index) {
@@ -202,8 +204,7 @@ class _StreamState extends State<Stream> {
             ),),
           );
         },
-      ),
-            ),
+      ),),),
             Positioned(
                 top: 592,
                 left: 5,
