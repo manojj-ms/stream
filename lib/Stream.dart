@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 class Stream extends StatefulWidget {
@@ -21,14 +23,14 @@ class _StreamState extends State<Stream> {
 
 
   // backing data
-  final europeanCountries = ['esyin375: 4767', 'esyin375: 477', 'esyin375: op7', 'esyin375: op7','esyin375: mks','esyin375: sks'];
+  final europeanCountries = ['esyin375: 4767', 'esyin375: 477', 'esyin375: op7', 'esyin375: op8','esyin375: op8','esyin375: op9'];
 
   // Override the initState() method and setup your VideoPlayerController
   @override
   void initState() {
     super.initState();
     // Pointing the video controller to our local asset.
-    _controller = VideoPlayerController.network("",)
+    _controller = VideoPlayerController.network("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",)
       ..initialize().then((_) {
         // Once the video has been loaded we play the video and set looping to true.
         _controller.play();
@@ -54,19 +56,15 @@ class _StreamState extends State<Stream> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
       body: Container(
-        decoration: new BoxDecoration(
-            color: new Color.fromRGBO(0,0,0,0.6) // Specifies the background color and the opacity
-        ),
-
+        height: 800,
         child: Stack(
           children: <Widget>[
-        SizedBox.expand(
+       SizedBox.expand(
         child: FittedBox(
           // If your background video doesn't look right, try changing the BoxFit property.
           // BoxFit.fill created the look I was going for.
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
           child: SizedBox(
             width: _controller.value.size?.width ?? 0,
             height: _controller.value.size?.height ?? 0,
@@ -74,6 +72,12 @@ class _StreamState extends State<Stream> {
           ),
         ),
         ),
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 0.0, sigmaY: 0.0),
+              child: Container(
+                color: Colors.black.withOpacity(0.2),
+              ),
+            ),
             Positioned(
               top: 30,
               left: 15,
@@ -156,7 +160,7 @@ class _StreamState extends State<Stream> {
               ),
             ),
             Positioned(
-                top: 345,
+                top: 390,
                 left: 15,
                 child: Container(
                   width: 45.0,
@@ -169,13 +173,13 @@ class _StreamState extends State<Stream> {
                 )
             ),
             Positioned(
-                top: 392,
+                top: 440,
                 left: 18,
                 child: Container(
                     child: Text(
                       '10 Left',
                       style: TextStyle(
-                          fontWeight: FontWeight.normal, fontSize: 13
+                          fontWeight: FontWeight.bold, fontSize: 13
                       ),)
                 )
             ),
@@ -189,18 +193,20 @@ class _StreamState extends State<Stream> {
                 )
             ),
       Positioned(
-        top: 420,
+        top: 470,
         child: Container(
-        height: 40,
-        color: Colors.white,
+        height: 100,
+        width: 120,
+        color: Colors.transparent,
       child: ListView.builder(
-        padding: EdgeInsets.only(top: 0,bottom: 10),
+        padding: EdgeInsets.only(top: 0,bottom: 0),
+        itemExtent: 25.0,
         itemCount: europeanCountries.length,
         controller: scrollController,
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(europeanCountries[index],style: TextStyle(
-                fontWeight: FontWeight.normal, fontSize: 12
+                fontWeight: FontWeight.normal, fontSize: 12,color: Colors.white
             ),),
           );
         },
@@ -397,8 +403,6 @@ class _StreamState extends State<Stream> {
                   ),
                 )
             ),
-
-
           ],
         ),
       ),
