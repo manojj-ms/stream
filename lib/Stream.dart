@@ -95,7 +95,7 @@ class _StreamState extends State<Stream> {
                     child: Text(
                       'JaneSmith',
                       style: TextStyle(
-                        fontWeight: FontWeight.normal, fontSize: 12
+                        fontWeight: FontWeight.normal, fontSize: 12,color: Colors.white
                       ),)
                 ),
             ),
@@ -103,7 +103,7 @@ class _StreamState extends State<Stream> {
               top: 52,
               left: 60,
               child: Container(
-                child: Icon(remove_red_eye,size: 13.0),
+                child: Icon(remove_red_eye,size: 13.0,color: Colors.white,),
               ),
             ),
             Positioned(
@@ -113,7 +113,7 @@ class _StreamState extends State<Stream> {
                   child: Text(
                     '4500',
                     style: TextStyle(
-                        fontWeight: FontWeight.normal, fontSize: 10
+                        fontWeight: FontWeight.normal, fontSize: 10,color: Colors.white
                     ),)
               ),
             ),
@@ -124,7 +124,7 @@ class _StreamState extends State<Stream> {
                   child: Text(
                     'viewers',
                     style: TextStyle(
-                        fontWeight: FontWeight.normal, fontSize: 10
+                        fontWeight: FontWeight.normal, fontSize: 10,color: Colors.white
                     ),)
               ),
             ),
@@ -179,7 +179,7 @@ class _StreamState extends State<Stream> {
                     child: Text(
                       '10 Left',
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 13
+                          fontWeight: FontWeight.bold, fontSize: 13,color: Colors.white
                       ),)
                 )
             ),
@@ -188,7 +188,7 @@ class _StreamState extends State<Stream> {
                 left: 315,
                 child: Container(
                   child: Container(
-                    child: Icon(volume_off),
+                    child: Icon(volume_off,color: Colors.white),
                   ),
                 )
             ),
@@ -216,7 +216,7 @@ class _StreamState extends State<Stream> {
                 left: 5,
                 child: Container(
                   child: new IconButton(
-                    icon: Icon(Icons.shopping_bag_outlined,size: 20),
+                    icon: Icon(Icons.shopping_bag_outlined,size: 20,color: Colors.white,),
                       onPressed: () {
                         // ignore: missing_return
                         showModalBottomSheet<void>( shape: RoundedRectangleBorder(
@@ -367,15 +367,17 @@ class _StreamState extends State<Stream> {
                             textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 12,
+                                color: Colors.white
                               ),
                             decoration: new InputDecoration(
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black, width: 2.0),
+                              borderSide: BorderSide(color: Colors.white, width: 2.0),
                             ),
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black, width: 2.0),
+                              borderSide: BorderSide(color: Colors.white, width: 2.0),
                             ),
                             hintText: 'Say Something. . .',
+                                hintStyle: TextStyle(color: Colors.white)
                           ),),
                         ),
                       ],
@@ -390,6 +392,7 @@ class _StreamState extends State<Stream> {
                   child: Icon(
                     Icons.flip_camera_ios_rounded,
                     size: 20,
+                    color: Colors.white,
                   ),
                 )
             ),
@@ -400,6 +403,7 @@ class _StreamState extends State<Stream> {
                   child: Icon(
                     Icons.filter_alt_outlined,
                     size: 20,
+                    color: Colors.white,
                   ),
                 )
             ),
